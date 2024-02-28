@@ -11,9 +11,6 @@ class Solution {
         }
         int start = 0, end = str.length() - 1;
 
-        if(str.isEmpty())
-        return true;
-
         while(start < end){
             if(str.charAt(start) != str.charAt(end)){
                 return false;
