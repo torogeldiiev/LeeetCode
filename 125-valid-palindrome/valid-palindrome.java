@@ -1,22 +1,27 @@
 class Solution {
     public boolean isPalindrome(String s) {
+        if(s.isEmpty()){
+            return true;
+        }
         
-        StringBuilder aza = new StringBuilder();
-        StringBuilder kotok = new StringBuilder();
-        for(int i = 0; i < s.length();i++){
-            if(Character.isLetter(s.charAt(i)) || Character.isDigit(s.charAt(i))){
-            aza.append(s.charAt(i));
-            kotok.append(s.charAt(i));
+        String str = "";
+        for(int i = 0; i < s.length(); i++){
+            if(Character.isLetterOrDigit(s.charAt(i)))
+            str +=Character.toLowerCase(s.charAt(i));
+        }
+        int start = 0, end = str.length() - 1;
+
+        if(str.isEmpty())
+        return true;
+
+        while(start < end){
+            if(str.charAt(start) != str.charAt(end)){
+                return false;
+            }else{
+                start++;
+                end--;
             }
         }
-        aza.reverse();
-        String v = aza.toString().toLowerCase();
-        String z = kotok.toString().toLowerCase();
-        if(v.equals(z)){
-             return true;
-        }
-        else{
-        return false;
-        }
+        return true;
     }
 }
